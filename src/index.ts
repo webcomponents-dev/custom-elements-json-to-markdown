@@ -65,20 +65,29 @@ ${cssProperties
 `;
 
 export default customElements => {
-  const customElement = customElements.tags[0];
-  let markdownParts = [`# ${customElement.name}`];
-  markdownParts.push(customElement.description);
-  customElement.attributes &&
-    markdownParts.push(transformAttributes(customElement.attributes));
-  customElement.properties &&
-    markdownParts.push(transformProperties(customElement.properties));
-  customElement.events &&
-    markdownParts.push(transformEvents(customElement.events));
-  customElement.slots &&
-    markdownParts.push(transformSlots(customElement.slots));
-  customElement.cssParts &&
-    markdownParts.push(transformCSSParts(customElement.cssParts));
-  customElement.cssProperties &&
-    markdownParts.push(transformCSSProperties(customElement.cssProperties));
+  let markdownParts = [];
+  for (const customElement of customElements.tags) {
+    if (!customElement) return undefined;
+    markdownParts.push(`# ${customElement.name}`);
+    markdownParts.push(customElement.description);
+    customElement.attributes &&
+      customElement.attributes.length > 0 &&
+      markdownParts.push(transformAttributes(customElement.attributes));
+    customElement.properties &&
+      customElement.properties.length > 0 &&
+      markdownParts.push(transformProperties(customElement.properties));
+    customElement.events &&
+      customElement.events.length > 0 &&
+      markdownParts.push(transformEvents(customElement.events));
+    customElement.slots &&
+      customElement.slots.length > 0 &&
+      markdownParts.push(transformSlots(customElement.slots));
+    customElement.cssParts &&
+      customElement.cssParts.length > 0 &&
+      markdownParts.push(transformCSSParts(customElement.cssParts));
+    customElement.cssProperties &&
+      customElement.cssProperties.length > 0 &&
+      markdownParts.push(transformCSSProperties(customElement.cssProperties));
+  }
   return markdownParts.join("\n");
 };
