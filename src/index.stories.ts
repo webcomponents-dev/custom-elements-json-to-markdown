@@ -1,4 +1,5 @@
 import transform from "./index";
+
 const customElements = {
   version: 2,
   tags: [
@@ -75,4 +76,4 @@ const customElements = {
   ]
 };
 
-export const story1 = () => transform(customElements);
+export const story1 = () => `<pre>${transform(customElements)}</pre>`;

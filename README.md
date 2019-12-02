@@ -1,4 +1,5 @@
 [![edit-in-webcomponents.dev](https://webcomponents.dev/assets/ext/edit_in_wcd.svg)](https://webcomponents.dev/edit/XPmoswtdx4DjIFzaPMBB)
+
 # text-field
 
 A text field web component
@@ -40,8 +41,8 @@ A text field web component
 
 ## CSS Custom Properties
 
-| Property              | Description                           |
-| --------------------- | ------------------------------------- |
-| `--placeholder-color` | Controls the color of the placeholder |
+| Property              | Syntax | Description                           |
+| --------------------- | ------ | ------------------------------------- |
+| `--placeholder-color` |        | Controls the color of the placeholder |
 
 > Created with [webcomponents.dev](https://webcomponents.dev)
